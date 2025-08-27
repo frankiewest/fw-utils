@@ -5,6 +5,13 @@
  * @description Printing value of ACF / meta custom field
  */
 function fw_acf_meta_shortcode( $atts ) {
+    // The shortcode is not meant to be called within the wp-admin interface
+    // Set the shortcode to return null if placed within admin
+    // This is commonly done within editors like Divi, Elementor, WPBakery etc.
+    if(is_admin()) {
+        return;
+    }
+
     // Set default shortcode attributes and merge with user-supplied attributes.
     // 'field' is the meta/ACF field name, 'id' is the post/user ID, 'type' is 'post' or 'user'.
     $atts = shortcode_atts( array(
@@ -47,3 +54,5 @@ function fw_acf_meta_shortcode( $atts ) {
     // If no value was found, return an empty string.
     return '';
 }
+
+add_shortcode('fw_acf_meta', 'fw_acf_meta_shortcode');
