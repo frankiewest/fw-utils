@@ -20,6 +20,9 @@ define('FW_UTILS_PLUGIN_URL', plugin_dir_url(__FILE__));
 /** Counter Shortcode */
 require_once FW_UTILS_PLUGIN_DIR . 'counter.php';
 
+/** ACF meta shortcode */
+require_once FW_UTILS_PLUGIN_DIR . 'acf-meta.php';
+
 /** 
  * Feel free to fork 🍴 and add more 😎
  * */
